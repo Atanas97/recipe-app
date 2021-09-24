@@ -8,12 +8,14 @@ Only mobile version as of 25/09/21. Tablet and Desktop to be added.
 
 ## Screenshots
 
-![App Screenshot]()
+![App Screenshot]
+
+<img src="screenshot-recipe.png">
 
   
 ## Demo
 
-https://fervent-roentgen-513d7b.netlify.app/
+https://confident-johnson-fe7dd6.netlify.app
 
   
 ## Authors
