@@ -43,38 +43,9 @@ const getMealData = async function () {
 }
 
 searchBtn.addEventListener('click', getMealData)
-// searchInput.addEventListener('keydown', (e) => {
-//     if (e.key === 13) getMealData
-// })
-// const getMealData = async function () {
-//     const fetchData = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
-//     const data = await fetchData.json()
 
-//     console.log(data)
-// }
-// getMealData()
+//Remove Intro Screen 
+const welcomeScreen = document.querySelector('.welcome-screen')
+const closeBtn = document.querySelector('.hide-btn')
 
-//
-
-
-// for (const meal of data.meals) {
-
-//     const { idMeal: id, strMeal: title, strMealThumb: img, strSource: link, strArea: region, strYoutube: youtube } = meal
-
-//     html = `
-//             <div class="card" data-id=${id}>
-//                 <img src="${img}" alt="">
-//                 <div class="recipe-info">
-//                     <h3>${title}</h3>
-//                     <span class="recipe-rate">
-//                         <p>${region}</p>
-//                         <a href="${youtube}" target="_blank">Video</a>
-//                     </span>
-//                     <a href="${link}" target="_blank">Full Recipe</a>
-//                 </div>
-//             </div>
-//             `
-//     // cardContainer.insertAdjacentHTML('beforeend', html)
-// }
-// cardContainer.innerHTML += html
-// searchInput = ''
+closeBtn.addEventListener('click', () => { welcomeScreen.classList.add('hide') })

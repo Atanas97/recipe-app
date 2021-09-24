@@ -49,6 +49,63 @@ body{background-color: var(--light-gray);}
 }
 
 /*******************
+*   Welcome screen styling
+*******************/
+.welcome-screen{
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background-color: var(--light-gray);
+    transition: 500ms opacity ease-in-out;
+}
+.welcome-screen.hide{opacity: 0;}
+.first-col{
+    background: url(/img/blob.svg) no-repeat;
+    background-size: 100%;
+    padding-bottom: 4rem;
+}
+
+.first-col img {
+    display: block;
+    width: 100%;
+    padding-top: 20%;
+    border-radius: 50%;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.second-col{
+    text-align: center;
+}
+
+.second-col h2 {
+    color: var(--gray);
+    font-size: 3rem;
+    line-height: 1.3;
+    text-transform: capitalize;
+}
+
+.second-col p {
+    max-width: 50%;
+    color: var(--gray);
+    margin: 3rem auto;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.second-col button{
+    border: none;
+    padding: 1rem 4rem;
+    color: #fff;
+    border-radius: 1rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    background: rgb(27,29,28);
+    background: linear-gradient(90deg, rgba(27,29,28,1) 0%, rgba(51,51,51,1) 20%, rgba(106,106,106,1) 50%, rgba(51,51,51,1) 79%, rgba(27,29,28,1) 100%);
+}
+
+/*******************
 *   Search bar styling
 *******************/
 .search-field {
