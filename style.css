@@ -58,7 +58,7 @@ body{background-color: var(--light-gray);}
     background-color: var(--light-gray);
     transition: 500ms opacity ease-in-out;
 }
-.welcome-screen.hide{opacity: 0;}
+.welcome-screen.hide{opacity: 0; pointer-events: none;}
 .first-col{
     background: url(/img/blob.svg) no-repeat;
     background-size: 100%;
