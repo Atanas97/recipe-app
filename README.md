@@ -10,7 +10,7 @@ Only mobile version as of 25/09/21. Tablet and Desktop to be added.
 
 ![App Screenshot]()
 
-<img src="screenshot-recipe.png">
+<img src="screenshot-recipe.png" width='100%'>
 
   
 ## Demo
