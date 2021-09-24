@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+:root{
+    --orange: #F7992C;
+    --light-gray: #f6f6f6;
+    --gray: #333;
+
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+html{font-size: 62.5%;}
+body{background-color: var(--light-gray);}
+/*******************
+*   header styling
+*******************/
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.header-user h2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.header-user p{
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+.highlight{
+    color: var(--orange);
+    padding-left: .25rem;
+}
+
+.header img{
+    display: block;
+    width: 100%;
+    max-width: 25%;
+    outline: .2rem solid var(--orange);
+    border-radius: 50%;
+}
+
+/*******************
+*   Search bar styling
+*******************/
+.search-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-field input{
+    height: 4.5rem;
+    border: none;
+    border-radius: .5rem;
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 1rem;
+}
+.search-field input:focus{
+    outline: .2rem solid var(--orange);
+}
+
+.search-field .fa-search{
+    background-color: var(--orange);
+    color: #fff;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+/*******************
+*   Search result styling
+*******************/
+
+.cards-container{
+    display: grid;
+    gap: 1rem;
+    width: 95%;
+    margin: 3rem auto;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 1rem;
+    padding: .75rem;
+}
+
+.card h3{
+    color: var(--gray);
+    font-size: 1.5rem;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    max-width: 20%;
+    outline: .2rem solid var(--orange);
+    border-radius: 50%;
+    margin-right: 2rem;
+}
+
+.recipe-rate {
+    display: flex;
+    margin: .5rem 0;
+    gap: 1rem;
+}
+
+.recipe-rate i {
+    color: var(--orange);
+}
+
+.card a,
+.card p {
+    font-size: 1.2rem;
+    color: var(--gray);
+    text-decoration: none;
+}
+
+.error{
+    text-align: center;
+    color: var(--gray);
+    font-size: 1.7rem;
+}
+
+.error-search {
+    color: var(--orange);
+    font-size: 2rem;
+    border-bottom: .3rem solid var(--orange);
+    border-radius: 30%;
+}
