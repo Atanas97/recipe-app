@@ -43,7 +43,9 @@ const getMealData = async function () {
 }
 
 searchBtn.addEventListener('click', getMealData)
-
+search.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') getMealData()
+})
 //Remove Intro Screen 
 const welcomeScreen = document.querySelector('.welcome-screen')
 const closeBtn = document.querySelector('.hide-btn')
