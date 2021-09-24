@@ -8,7 +8,7 @@ Only mobile version as of 25/09/21. Tablet and Desktop to be added.
 
 ## Screenshots
 
-![App Screenshot]
+![App Screenshot]()
 
 <img src="screenshot-recipe.png">
 
