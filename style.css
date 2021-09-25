@@ -199,3 +199,66 @@ body{background-color: var(--light-gray);}
     border-bottom: .3rem solid var(--orange);
     border-radius: 30%;
 }
+
+/*******************
+* Modal pop up styling
+*******************/
+.modal {
+    position: relative;
+}
+.modal.active {transform: scale(1,1);}
+.modal-wrap{
+    position: fixed;
+    inset: 0;
+    background-color: var(--orange);
+    clip-path: circle(0.0% at 0 0);
+    transition: 500ms clip-path ease-in-out;
+    transform-origin: left;
+    overflow: auto;
+}
+.modal-wrap.active {clip-path: circle(141.4% at 0 0);}
+
+.fa-times{
+    position: absolute;
+    font-size: 3rem;
+    left: 5%;
+    top: 1%;
+    cursor: pointer;
+    color: #f8f8f8;
+    padding: .25rem;
+    z-index: 111;
+}
+
+.modal-top{
+    padding-top: 5rem;
+    text-align: center;
+}
+.modal-top h2{
+    color: #f8f8f8;
+    font-size: 2rem;
+}
+.modal-top img {
+    display: block;
+    width: 100%;
+    max-width: 40%;
+    margin: 2rem auto;
+    outline: .3rem solid var(--light-gray);
+    outline-offset: .3rem;
+    border-radius: 50%;
+}
+.modal-top p {
+    color: var(--light-gray);
+    font-size: 1.5rem;
+    font-weight: 400;
+    max-width: 90%;
+    margin: 1rem auto;
+}
+
+.modal-bottom {
+    width: 90%;
+    margin: 0 auto;
+}
+.modal-bottom h4 {
+    color: var(--light-gray);
+    font-size: 2rem;
+}
