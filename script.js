@@ -8,6 +8,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
 })
 const getMealData = async function () {
+    displayLoading()
     let searchInput = document.getElementById('search-input').value.trim()
     const fetchData = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
     const data = await fetchData.json()
@@ -15,7 +16,9 @@ const getMealData = async function () {
 
     let html = ''
     if (data.meals) {
+
         data.meals.forEach(meal => {
+            displayLoading()
             const { idMeal: id, strMeal: title, strMealThumb: img, strSource: link, strArea: region, strYoutube: youtube, strCategory: category } = meal
             html +=
                 `
@@ -26,9 +29,9 @@ const getMealData = async function () {
                             <span class="recipe-rate">
                                 <p>${region}</p>
                                 <p>${category}</p>
-                                <a href="${youtube}" target="_blank">Video</a>
+                                <a href="${youtube}" target="_blank" onclick="event.stopPropagation();">Video</a>
                             </span>
-                            <a href="${link}" target="_blank">Full Recipe</a>
+                            <a href="${link}" target="_blank" onclick="event.stopPropagation();">Full Recipe</a>
                         </div>
                     </div>
                 `
@@ -113,3 +116,29 @@ closeModal.addEventListener('click', () => {
     //maybe insertAdjacentHtml
     modal.appendChild(closeModal);
 })
+
+
+//Loader on api calls
+const loader = document.querySelector('.loader')
+
+function displayLoading() {
+    loader.classList.add("display");
+    // to stop loading after some time
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000);
+}
+
+function hideLoading() {
+    window.addEventListener('load', () => {
+        loader.classList.remove('display');
+    })
+}
+
+
+//Stop propagation for video and full recipe link
+const stopPropag = function (link) {
+    link.addEventListener('click', (e) => {
+        e.stopPropagation();
+    })
+}

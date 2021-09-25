@@ -262,3 +262,27 @@ body{background-color: var(--light-gray);}
     color: var(--light-gray);
     font-size: 2rem;
 }
+
+
+
+/******Loader styles******/
+.loader{
+    visibility: hidden;
+    opacity: 0;
+}
+.loader.display {
+    visibility: visible;
+    opacity: 1;
+}
+.loader img{
+    width: 100%;
+}
+
+.disappear{animation: vanish 1s forwards;}
+
+@keyframes vanish {
+    100%{
+        opacity: 0;
+        visibility: 0;
+    }
+}
