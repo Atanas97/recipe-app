@@ -176,6 +176,12 @@ body{background-color: var(--light-gray);}
     gap: 1rem;
 }
 
+.recipe-rate p:last-of-type{
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 0 1rem;
+}
+
 .recipe-rate i {
     color: var(--orange);
 }

@@ -134,11 +134,3 @@ function hideLoading() {
         loader.classList.remove('display');
     })
 }
-
-
-//Stop propagation for video and full recipe link
-const stopPropag = function (link) {
-    link.addEventListener('click', (e) => {
-        e.stopPropagation();
-    })
-}
