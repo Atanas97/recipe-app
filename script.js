@@ -12,7 +12,6 @@ const getMealData = async function () {
     let searchInput = document.getElementById('search-input').value.trim()
     const fetchData = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
     const data = await fetchData.json()
-    console.log(data.meals)
 
     let html = ''
     if (data.meals) {
@@ -75,8 +74,6 @@ const displayMolda = (meal) => {
 
     modal.classList.add('active')
     meal = meal.meals[0]
-    console.log(meal)
-
 
     //Move in seperate function
     for (const strIngredient in meal) {
@@ -104,7 +101,6 @@ const displayMolda = (meal) => {
 
     //merge arrays to get proper values
     const fullIngredients = measurements.map((e, i) => e + ' ' + ingredients[i])
-    console.log(fullIngredients)
 
     const { strMeal: title, strMealThumb: img, strInstructions: desc } = meal
     let newHtml = `
@@ -112,11 +108,10 @@ const displayMolda = (meal) => {
                     <h2>${title}</h2>
                     <img src="${img}" alt="${title} meal image">
                     <h4>Instructions:</h4>
-                    <p>${desc}</p>
+                    <p>${renderDescription(desc)}</p>
                 </div>
                 <div class="modal-bottom">
                     <h4>Ingredients:</h4>
-                    <small></small>
                     <div class="recipe-steps">
                         <p>${renderIngredients(fullIngredients)}</p>
                     </div>
@@ -127,9 +122,7 @@ const displayMolda = (meal) => {
     //Emptying array's to prevent data stock pile
     ingredientsArr = []
     measurementArr = []
-    modal.classList.contains('active') ? console.log('contains') : console.log('doesnt contain')
     modal.classList.contains('active') ? body.style.overflowY = 'none' : body.style.overflowY = 'auto'
-
 }
 
 
@@ -172,10 +165,12 @@ function hideLoading() {
     })
 }
 
-
+const recipeStepsContainer = document.querySelector('.modal-bottom')
+console.log(recipeStepsContainer)
 const renderIngredients = (items) => {
-    // items.forEach(item => {
-    //     return item.style.display = 'block'
-    // })
-    return items.join(',  ') + /\n/
+    return items.join('. ').replace(/(\. )/gm, `<br class="ingredient">`)
+}
+
+const renderDescription = (desc) => {
+    return desc.replace(/(\. )/gm, `<br>`)
 }

@@ -44,7 +44,7 @@ body{background-color: var(--light-gray);}
     display: block;
     width: 100%;
     max-width: 25%;
-    outline: .2rem solid var(--orange);
+    border: .2rem solid var(--orange);
     border-radius: 50%;
 }
 
@@ -60,7 +60,7 @@ body{background-color: var(--light-gray);}
 }
 .welcome-screen.hide{opacity: 0; pointer-events: none;}
 .first-col{
-    background: url(/img/blob.svg) no-repeat;
+    background: url(./img/blob.svg) no-repeat;
     background-size: 100%;
     padding-bottom: 4rem;
 }
@@ -138,9 +138,8 @@ body{background-color: var(--light-gray);}
 }
 
 /*******************
-*   Search result styling
+*Search result styling
 *******************/
-
 .cards-container{
     display: grid;
     gap: 1rem;
@@ -275,6 +274,10 @@ body{background-color: var(--light-gray);}
 .modal-bottom {
     width: 90%;
     margin: 0 auto;
+}
+
+.ingredient{
+    margin: 0.5rem 0;
 }
 
 /******Loader styles******/
