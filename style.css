@@ -165,7 +165,7 @@ body{background-color: var(--light-gray);}
     display: block;
     width: 100%;
     max-width: 20%;
-    outline: .2rem solid var(--orange);
+    border: .3rem solid var(--orange);
     border-radius: 50%;
     margin-right: 2rem;
 }
@@ -184,6 +184,12 @@ body{background-color: var(--light-gray);}
 
 .recipe-rate i {
     color: var(--orange);
+}
+
+.recipe-steps p {
+    color: var(--light-gray);
+    font-size: 1.5rem;
+    margin-top: 1rem;
 }
 
 .card a,
@@ -235,41 +241,41 @@ body{background-color: var(--light-gray);}
     z-index: 111;
 }
 
+.modal-wrap h4 {
+    color: var(--light-gray);
+    font-size: 2rem;
+
+}
 .modal-top{
     padding-top: 5rem;
-    text-align: center;
+    width: 90%;
+    margin: 0 auto;
 }
 .modal-top h2{
     color: #f8f8f8;
     font-size: 2rem;
+    text-align: center;
 }
 .modal-top img {
     display: block;
     width: 100%;
     max-width: 40%;
     margin: 2rem auto;
-    outline: .3rem solid var(--light-gray);
-    outline-offset: .3rem;
+    border: .3rem solid var(--light-gray);
     border-radius: 50%;
 }
 .modal-top p {
     color: var(--light-gray);
     font-size: 1.5rem;
     font-weight: 400;
-    max-width: 90%;
-    margin: 1rem auto;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 .modal-bottom {
     width: 90%;
     margin: 0 auto;
 }
-.modal-bottom h4 {
-    color: var(--light-gray);
-    font-size: 2rem;
-}
-
-
 
 /******Loader styles******/
 .loader{
@@ -289,6 +295,6 @@ body{background-color: var(--light-gray);}
 @keyframes vanish {
     100%{
         opacity: 0;
-        visibility: 0;
+        visibility: hidden;
     }
 }

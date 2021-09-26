@@ -63,32 +63,73 @@ async function getMealId(targetID) {
     displayMolda(mealIdRes)
 }
 
+const body = document.querySelector('body')
 /**************************************************
 Render response data into modal to simulate a page
 ***************************************************/
 let steps
+let ingredientsArr = []
+let measurementArr = []
+
 const displayMolda = (meal) => {
+
     modal.classList.add('active')
     meal = meal.meals[0]
     console.log(meal)
 
+
+    //Move in seperate function
+    for (const strIngredient in meal) {
+
+        if (meal.hasOwnProperty(strIngredient)) {
+
+            if (strIngredient.includes('strIngredient')) {
+                ingredientsArr.push(meal[strIngredient])
+            }
+            if (strIngredient.includes('strMeasure')) {
+                measurementArr.push(meal[strIngredient])
+            }
+
+        }
+
+    }
+    //get all ingredients value with a truthy value 
+    const ingredients = ingredientsArr.filter(ingredient => {
+        return ingredient.trim() != ''
+    })
+
+    const measurements = measurementArr.filter(measure => {
+        return measure.trim() != ''
+    })
+
+    //merge arrays to get proper values
+    const fullIngredients = measurements.map((e, i) => e + ' ' + ingredients[i])
+    console.log(fullIngredients)
+
     const { strMeal: title, strMealThumb: img, strInstructions: desc } = meal
-    console.log(title)
     let newHtml = `
                 <div class="modal-top">
-                
                     <h2>${title}</h2>
                     <img src="${img}" alt="${title} meal image">
+                    <h4>Instructions:</h4>
                     <p>${desc}</p>
                 </div>
                 <div class="modal-bottom">
                     <h4>Ingredients:</h4>
+                    <small></small>
                     <div class="recipe-steps">
-                        <p>REcipe steps goes here</p>
+                        <p>${renderIngredients(fullIngredients)}</p>
                     </div>
                 </div>
             `
     modal.insertAdjacentHTML('afterbegin', newHtml)
+
+    //Emptying array's to prevent data stock pile
+    ingredientsArr = []
+    measurementArr = []
+    modal.classList.contains('active') ? console.log('contains') : console.log('doesnt contain')
+    modal.classList.contains('active') ? body.style.overflowY = 'none' : body.style.overflowY = 'auto'
+
 }
 
 
@@ -123,14 +164,18 @@ const loader = document.querySelector('.loader')
 
 function displayLoading() {
     loader.classList.add("display");
-    // to stop loading after some time
-    setTimeout(() => {
-        loader.classList.remove("display");
-    }, 5000);
 }
 
 function hideLoading() {
     window.addEventListener('load', () => {
         loader.classList.remove('display');
     })
+}
+
+
+const renderIngredients = (items) => {
+    // items.forEach(item => {
+    //     return item.style.display = 'block'
+    // })
+    return items.join(',  ') + /\n/
 }
