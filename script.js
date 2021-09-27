@@ -74,7 +74,7 @@ const displayMolda = (meal) => {
 
     modal.classList.add('active')
     meal = meal.meals[0]
-
+    console.log(meal)
     //Move in seperate function
     for (const strIngredient in meal) {
 
@@ -91,12 +91,13 @@ const displayMolda = (meal) => {
 
     }
     //get all ingredients value with a truthy value 
-    const ingredients = ingredientsArr.filter(ingredient => {
-        return ingredient.trim() != ''
-    })
+    const ingredients = ingredientsArr.filter(ingredient => ingredient)
+    console.log(ingredients)
 
     const measurements = measurementArr.filter(measure => {
-        return measure.trim() != ''
+        // return measure.trim() != '' || measure.trim() != null
+        measure ? measure.trim() != '' : measure != null
+        return measure
     })
 
     //merge arrays to get proper values
@@ -166,7 +167,7 @@ function hideLoading() {
 }
 
 const recipeStepsContainer = document.querySelector('.modal-bottom')
-console.log(recipeStepsContainer)
+
 const renderIngredients = (items) => {
     return items.join('. ').replace(/(\. )/gm, `<br class="ingredient">`)
 }
